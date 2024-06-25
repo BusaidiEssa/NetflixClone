@@ -12,18 +12,18 @@ const App = () => {
 
   const navigate = useNavigate();
 
-  useEffect(()=>{
-    onAuthStateChanged(auth,async(user)=>{
-      if(user){
+  useEffect(() => {
+    onAuthStateChanged(auth, async (user) => {
+      if (user) {
         console.log("Logged In");
         navigate('/');
-      }else{
+      } else {
         console.log("Logged Out");
-        navigate('login');
+        navigate('/login');
       }
-      }
-    )
-  })
+    });
+  }, []); // Add an empty dependency array here
+  
   return (
     <div>
       <ToastContainer theme='dark'/>
